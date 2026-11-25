@@ -1,11 +1,13 @@
 {
-    "domain": "delayed_action",
-    "name": "Delayed Action",
-    "documentation": "https://github.com/bhuebschen/delayed_action",
-    "requirements": [],
-    "dependencies": [],
-    "codeowners": ["@bhuebschen"],
-    "config_flow": true,
-    "version": "0.1.5",
-    "iot_class": "local_polling"
+  "domain": "delayed_action",
+  "name": "Delayed Action",
+  "codeowners": [
+    "@bhuebschen"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/BRUNOsys-UG/delayed_action",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/BRUNOsys-UG/delayed_action/issues",
+  "requirements": [],
+  "version": "0.2.0"
 }

@@ -1,18 +1,46 @@
 execute:
-  description: "Schedule an action with a delay or at a specific time"
+  description: Schedule an action with a delay or at a specific time.
   fields:
     entity_id:
-      description: "The entity ID of the device to control"
-      example: "switch.any_switch"
+      required: true
+      selector:
+        entity: {}
     action:
-      description: "The action to perform (e.g., turn_on, turn_off, set_brightness, set_temperature)"
-      example: "turn_on"
+      required: true
+      example: turn_on
+      selector:
+        text: {}
     delay:
-      description: "The delay in seconds before performing the action"
       example: 10
+      selector:
+        number:
+          min: 0
+          mode: box
+          unit_of_measurement: s
     datetime:
-      description: "The specific date and time to perform the action (ISO 8601 format)"
-      example: "2024-06-23T18:00:00"
-    additional_data:
-      description: "Any additional data to be passed to the service call (optional)"
-      example: {"attribute": "value"}
+      example: "2026-12-01T18:00:00+01:00"
+      selector:
+        datetime: {}
+    data:
+      description: Additional service data.
+      example: {"brightness": 128}
+      selector:
+        object: {}
+cancel:
+  description: Cancel scheduled actions for an entity or a specific task.
+  fields:
+    entity_id:
+      required: true
+      selector:
+        entity: {}
+    task_id:
+      selector:
+        text: {}
+list:
+  description: Publish scheduled actions via the existing response event.
+  fields:
+    entity_id:
+      selector:
+        entity: {}
+get_config:
+  description: Publish configured domains via the existing response event.

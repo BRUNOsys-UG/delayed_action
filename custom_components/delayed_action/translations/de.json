@@ -1,22 +1,27 @@
 {
-    "title": "Delayed Action",
-    "config": {
-        "step": {
-            "user": {
-                "title": "Delayed Action konfigurieren",
-                "description": "Eine neue Delayed Action Integration hinzufügen",
-                "data": {
-                    "name": "Name"
-                }
-            }
+  "title": "Delayed Action",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Delayed Action konfigurieren",
+        "data": {
+          "domains": "Entitätstypen"
         }
+      }
     },
-    "options": {
-        "step": {
-            "init": {
-                "title": "Delayed Action konfigurieren",
-                "description": "Geben Sie die Entitätstypen an, die Sie mit Delayed Action verwenden möchten"
-            }
-        }
+    "abort": {
+      "single_instance_allowed": "Nur eine Instanz ist zulässig.",
+      "already_configured": "Bereits konfiguriert."
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Delayed Action konfigurieren",
+        "data": {
+          "domains": "Entitätstypen"
+        }
+      }
+    }
+  }
 }

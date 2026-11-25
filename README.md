@@ -1,4 +1,4 @@
-![delayed_action](https://github.com/bhuebschen/delayed_action/assets/1864448/fe84a672-b572-46ca-bb7e-73f236ab4306)
+![delayed_action](https://github.com/BRUNOsys-UG/delayed_action/assets/1864448/fe84a672-b572-46ca-bb7e-73f236ab4306)
 
 # Delayed Action Home Assistant Integration
 
@@ -15,19 +15,23 @@ The `delayed_action` integration allows you to schedule actions for Home Assista
 - Schedule actions at a specific date and time (ISO 8601 format).
 - Pass additional data to the actions.
 
+## Persistence
+
+Pending actions are stored immediately. On restart or integration reload, only future actions are restored; expired actions are discarded. Actions are removed from storage before dispatch to avoid replay after a crash. A crash between removal and dispatch can therefore lose an action. Naive date/time values use the configured Home Assistant timezone; timestamps are stored in UTC.
+
 ## Installation:
 
 ### [HACS](hacs) (Home Assistant Community Store)
 
 1. Go to HACS page on your Home Assistant instance
-1. Add this repository (https://github.com/bhuebschen/delayed_action) via HACS Custom repositories [How to add Custom Repositories](https://hacs.xyz/docs/faq/custom_repositories/)
+1. Add this repository (https://github.com/BRUNOsys-UG/delayed_action) via HACS Custom repositories [How to add Custom Repositories](https://hacs.xyz/docs/faq/custom_repositories/)
 1. Select `Integration`
 1. Press add icon and search for `Delayed Action`
 1. Select Delayed Action repo and install,
 1. Restart Home Assistant
 1. Add delayed_action to your page
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=bhuebschen&repository=delayed_action&category=integration)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=BRUNOsys-UG&repository=delayed_action&category=integration)
 
 ### Manual
 
@@ -35,7 +39,7 @@ The `delayed_action` integration allows you to schedule actions for Home Assista
 
 ```
 /config/custom_components/delayed_action/
-├── init.py
+├── __init__.py
 ├── manifest.json
 ├── config_flow.py
 ├── const.py
@@ -62,7 +66,7 @@ You can use the `delayed_action.execute` service to schedule actions with a dela
 - `action` (required): The action to perform (e.g., `turn_on`, `turn_off`, `set_brightness`, `set_temperature`).
 - `delay` (optional): The delay in seconds before performing the action.
 - `datetime` (optional): The specific date and time to perform the action (ISO 8601 format).
-- `additional_data` (optional): Any additional data to be passed to the service call.
+- `data` (optional; `additional_data` is also accepted): Any additional data to be passed to the service call.
 
 ### Examples
 
@@ -90,7 +94,8 @@ script:
           entity_id: light.any_light
           delay: 15  # Delay in seconds
           action: turn_on
-          brightness: 128
+          data:
+            brightness: 128
 ```
 
 ## Development
@@ -130,6 +135,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 [home-assistant]: https://www.home-assistant.io/
 [hacs]: https://hacs.xyz
-[latest-release]: https://github.com/bhuebschen/delayed_action/releases/latest
+[latest-release]: https://github.com/BRUNOsys-UG/delayed_action/releases/latest
 [ha-scripts]: https://www.home-assistant.io/docs/scripts/
-[edit-readme]: https://github.com/bhuebschen/delayed_action/edit/master/README.md
+[edit-readme]: https://github.com/BRUNOsys-UG/delayed_action/edit/master/README.md

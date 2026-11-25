@@ -1,0 +1,27 @@
+{
+  "title": "Delayed Action",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Delayed Action",
+        "data": {
+          "domains": "Entity domains"
+        }
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Only one instance is allowed.",
+      "already_configured": "Already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Configure Delayed Action",
+        "data": {
+          "domains": "Entity domains"
+        }
+      }
+    }
+  }
+}
