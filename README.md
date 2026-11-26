@@ -138,3 +138,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 [latest-release]: https://github.com/BRUNOsys-UG/delayed_action/releases/latest
 [ha-scripts]: https://www.home-assistant.io/docs/scripts/
 [edit-readme]: https://github.com/BRUNOsys-UG/delayed_action/edit/master/README.md
+
+## Automated releases
+
+Push a version tag such as `v0.2.0-beta.1` to publish a release after successful tests. Alternatively run **Build & Release** with a version tag using workflow dispatch (the workflow must exist on the default branch for manual dispatch). Tags containing a hyphen become prereleases. Existing releases and tags pointing to another commit are rejected. Ordinary pushes and pull requests only build/test.
